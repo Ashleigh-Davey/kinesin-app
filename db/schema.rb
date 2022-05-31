@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_27_102628) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_31_143057) do
   create_table "mutations", force: :cascade do |t|
-    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
     t.string "domain"
+    t.string "mutation"
+    t.string "isoform"
+    t.string "presentation"
+    t.string "category"
+    t.string "residue"
+    t.string "from"
+    t.string "to"
+    t.string "inheritance"
+    t.string "mutation_type"
+    t.string "year"
+    t.string "species"
+    t.string "families_affected"
+    t.string "age_of_onset"
+    t.text "reference"
+    t.text "url"
   end
 
 end

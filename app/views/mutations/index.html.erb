@@ -3,8 +3,8 @@
 <table>
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
+            <th>Mutation</th>
+            <th>Isoform</th>
             <th>Domain</th>
             <th>Actions</th>
         </tr>
@@ -12,8 +12,8 @@
 <tbody>
     <% @mutation.each do |mutation| %>
         <tr>
-            <td><%= mutation.title %></td>
-            <td><%= mutation.description %></td>
+            <td><%= mutation.mutation %></td>
+            <td><%= mutation.isoform %></td>
             <td><%= mutation.domain %></td>
             <td><%= link_to 'Show', mutation_path(mutation) %></td>
         </tr>

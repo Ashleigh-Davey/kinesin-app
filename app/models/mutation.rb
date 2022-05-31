@@ -1,4 +1,3 @@
 class Mutation < ApplicationRecord
-    validates :title, presence:true 
-    validates :description, presence:true
+    validates :mutation, presence:true 
 end

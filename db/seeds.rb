@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+require 'csv'    
+
+CSV.foreach(Rails.root.join('lib/Kinesin Mutations.csv'), "r:ISO-8859-1", headers: true) do |row|
+  Mutation.create!(row.to_hash)
+end
