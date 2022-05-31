@@ -1,0 +1,22 @@
+<h1> All Mutation Details </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Domain</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+<tbody>
+    <% @mutation.each do |mutation| %>
+        <tr>
+            <td><%= mutation.title %></td>
+            <td><%= mutation.description %></td>
+            <td><%= mutation.domain %></td>
+            <td><%= link_to 'Show', mutation_path(mutation) %></td>
+        </tr>
+    <% end %>
+</tbody>
+</table>
