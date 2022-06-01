@@ -1,22 +1,27 @@
+<p></p>
 <h1> All Mutation Details </h1>
-
-<table>
+<p></p>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Mutation</th>
             <th>Isoform</th>
             <th>Domain</th>
+            <th>Species</th>
             <th>Actions</th>
         </tr>
     </thead>
-<tbody>
-    <% @mutation.each do |mutation| %>
-        <tr>
-            <td><%= mutation.mutation %></td>
-            <td><%= mutation.isoform %></td>
-            <td><%= mutation.domain %></td>
-            <td><%= link_to 'Show', mutation_path(mutation) %></td>
-        </tr>
-    <% end %>
-</tbody>
+    <tbody>
+        <% @mutation.each do |mutation| %>
+            <tr>
+                <td><%= mutation.mutation %></td>
+                <td>
+                    <span class="badge rounded-pill <%= isoform_class(mutation.isoform) %>"><%= mutation.isoform %></span>
+                </td>
+                <td><%= mutation.domain %></td>
+                <td><%= mutation.species %></td>
+                <td><%= link_to 'Show', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %>  <%= link_to 'URL', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %></td>
+            </tr>
+        <% end %>
+    </tbody>
 </table>
