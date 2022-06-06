@@ -13,11 +13,23 @@
 
  *= require_tree .
  *= require_self
+
  */
 
- @import "bootstrap";
+@import "bootstrap";
+
 
 .bg-kif5a {
   color: #224940;
   background-color: #5dd2b6;
+}
+
+.bg-kif5c {
+  color: #492b49;
+  background-color: #c68cd1;
+}
+
+.bg-khc {
+  color: #683b07;
+  background-color: #f3955f;
 }

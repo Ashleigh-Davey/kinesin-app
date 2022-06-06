@@ -1,27 +1,37 @@
 <p></p>
 <h1> All Mutation Details </h1>
 <p></p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Mutation</th>
-            <th>Isoform</th>
-            <th>Domain</th>
-            <th>Species</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @mutation.each do |mutation| %>
+<link href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/tableExport.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF/jspdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead class="table-light">
             <tr>
-                <td><%= mutation.mutation %></td>
-                <td>
-                    <span class="badge rounded-pill <%= isoform_class(mutation.isoform) %>"><%= mutation.isoform %></span>
-                </td>
-                <td><%= mutation.domain %></td>
-                <td><%= mutation.species %></td>
-                <td><%= link_to 'Show', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %>  <%= link_to 'URL', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %></td>
+                <th>Mutation</th>
+                <th data-field="isoform">Isoform</th>
+                <th data-field="domain">Domain</th>
+                <th data-field="species">Species</th>
+                <th>Actions</th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @mutation.each do |mutation| %>
+                <tr>
+                    <td><%= mutation.mutation %></td>
+                    <td>
+                        <span class="badge rounded-pill <%= isoform_class(mutation.isoform) %>"><%= mutation.isoform %></span>
+                    </td>
+                    <td><%= mutation.domain %></td>
+                    <td><%= mutation.species %></td>
+                    <td><%= link_to 'Show', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %>  <a class="btn btn-secondary btn-sm" href= <%= mutation.url %> >URL</a> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

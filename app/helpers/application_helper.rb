@@ -4,10 +4,11 @@ module ApplicationHelper
     case isoform
     when 'KIF5A'
       'bg-kif5a'
+      #'bg-info'
     when 'KIF5C'
-      'bg-success'
+      'bg-kif5c'
     when 'KHC'
-      'bg-warning text-dark'
+      'bg-khc'
     else
       'bg-secondary'
     end
