@@ -2,13 +2,18 @@
 <h1> All Mutation Details </h1>
 <p></p>
 
-
 <div class="table-responsive">
     <table class='bootstrap-table table table-hover table-bordered'
            data-toggle="table"
            data-search="true"
+           data-height="750"
            data-show-columns="true"
-           data-pagination="true">
+           data-pagination="true"
+           data-page-size="25"
+           data-page-list="[25,50,100]"
+           data-click-to-select="true"
+           data-single-select="true"
+           data-toolbar="#toolbar">
         <thead class="table-light">
             <tr>
                 <th>Mutation</th>
@@ -31,7 +36,7 @@
                     <td><%= mutation.species %></td>
                     <td><%= mutation.presentation %></td>
                     <td><%= mutation.year %></td>
-                    <td><%= link_to 'Show', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %>  <a class="btn btn-secondary btn-sm" href= <%= mutation.url %> >URL</a> </td>
+                    <td><%= link_to 'Show', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %>  <a class="btn btn-secondary btn-sm" href= <%= mutation.url %> target="_blank" >URL</a> </td>
                 </tr>
             <% end %>
         </tbody>
