@@ -2,6 +2,7 @@
 <h1> All Mutation Details </h1>
 <p></p>
 
+
 <div class="table-responsive">
     <table class='bootstrap-table table table-hover table-bordered'
            data-toggle="table"
@@ -9,20 +10,29 @@
            data-height="750"
            data-show-columns="true"
            data-pagination="true"
-           data-page-size="25"
-           data-page-list="[25,50,100]"
+           data-page-size="50"
+           data-page-list="[50,100,200]"
            data-click-to-select="true"
            data-single-select="true"
+           data-show-print="true"
+           data-show-export="true"
+           data-export-data-type="all"
            data-toolbar="#toolbar">
         <thead class="table-light">
             <tr>
-                <th>Mutation</th>
-                <th data-field="isoform" data-sortable="true">Isoform</th>
-                <th data-field="domain" data-sortable="true">Domain</th>
-                <th data-field="species" data-sortable="true">Species</th>
-                <th data-field="presentation">Presentation</th>
-                <th data-field="year" data-sortable="true">Year</th>
-                <th>Actions</th>
+                <th data-field="mutation"  data-force-export="true">Mutation</th>
+                <th data-field="isoform" data-sortable="true" data-force-export="true">Isoform</th>
+                <th data-field="domain" data-sortable="true" data-force-export="true">Domain</th>
+                <th data-field="species" data-sortable="true" data-force-export="true">Species</th>
+                <th data-field="presentation" data-sortable="true" data-force-export="true">Presentation</th>
+                <th data-field="year" data-sortable="true" data-force-export="true">Year</th>
+                <th data-field="inheritance" data-sortable="true" data-visible="false" data-force-export="true">Inheritance</th>
+                <th data-field="mutation_type" data-sortable="true" data-visible="false" data-force-export="true">Mutation Type</th>
+                <th data-field="families_affected" data-sortable="true" data-visible="false" data-force-export="true">Families Affected</th>
+                <th data-field="age_of_onset" data-sortable="true" data-visible="false" data-force-export="true">Age of Onset</th>
+                <th data-field="reference" data-sortable="true" data-visible="false" data-force-export="true">Reference</th>
+                <th data-field="URL" data-sortable="true" data-visible="false" data-force-export="true">URL</th>
+                <th data-force-hide="true">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +46,13 @@
                     <td><%= mutation.species %></td>
                     <td><%= mutation.presentation %></td>
                     <td><%= mutation.year %></td>
-                    <td><%= link_to 'Show', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %>  <a class="btn btn-secondary btn-sm" href= <%= mutation.url %> target="_blank" >URL</a> </td>
+                    <td><%= mutation.inheritance %></td>
+                    <td><%= mutation.mutation_type %></td>
+                    <td><%= mutation.families_affected %></td>
+                    <td><%= mutation.age_of_onset %></td>
+                    <td><%= mutation.reference %></td>
+                    <td><%= mutation.url %></td>
+                    <td><%= link_to 'Show Details', mutation_path(mutation), class: 'btn btn-secondary btn-sm' %>  <a class="btn btn-secondary btn-sm" href= <%= mutation.url %> target="_blank" >URL</a> </td>
                 </tr>
             <% end %>
         </tbody>
@@ -44,7 +60,45 @@
 </div>
 
 <script>
+var $table = $('#table')
+
   $(function() {
     $('#table').bootstrapTable()
   })
+<!-- script for exporting data -->
+  $(function() {
+    $('#toolbar').find('select').change(function () {
+      $table.bootstrapTable('destroy').bootstrapTable({
+        exportDataType: $(this).val(),
+        exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel', 'pdf'],
+        // columns: [
+        //   {
+        //     field: 'mutation',
+        //     title: 'Mutation'
+        //   },
+        //   {
+        //     field: 'isoform',
+        //     title: 'Isoform'
+        //   }, 
+        //   {
+        //     field: 'domain',
+        //     title: 'Domain'
+        //   }, 
+        //   {
+        //     field: 'species',
+        //     title: 'Species'
+        //   },
+        //   {
+        //     field: 'presentation',
+        //     title: 'Presentation'
+        //   },
+        //   {
+        //     field: 'year',
+        //     title: 'Year'
+        //   }
+        // ]
+      })
+    }).trigger('change')
+  })
+
 </script>
