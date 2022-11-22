@@ -5,16 +5,19 @@
     <table class='bootstrap-table table table-hover table-bordered'
            data-toggle="table"
            data-search="true"
+           data-id-table="advancedTable"
            data-height="750"
            data-show-columns="true"
            data-pagination="true"
            data-page-size="100"
            data-page-list="[100,200]"
-           data-click-to-select="true"
            data-single-select="true"
            data-show-print="true"
            data-show-export="true"
            data-export-data-type="all"
+           data-addrbar="true"
+           data-filter-control-multiple-search="true"
+           data-advanced-search="true"
            data-toolbar="#toolbar">
         <thead class="table-light">
             <tr>
@@ -98,5 +101,4 @@ var $table = $('#table')
       })
     }).trigger('change')
   })
-
 </script>
