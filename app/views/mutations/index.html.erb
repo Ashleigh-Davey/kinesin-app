@@ -1,5 +1,5 @@
 
-<h1 class="my-3"> All Mutation Details </h1>
+<h1 class="my-3" id="header"></h1>
 
 <div class="table-responsive">
     <table class='bootstrap-table table table-hover table-bordered'
@@ -101,4 +101,13 @@ var $table = $('#table')
       })
     }).trigger('change')
   })
-</script>
+
+  var header = "Show All Mutations"
+  document.getElementById("header").textContent = header
+  if (url.searchParams.has("KIF5A")) {
+    var header = "Show All KIF5A Mutations";
+    document.getElementById("header").textContent = header;
+  }
+  
+
+  </script>

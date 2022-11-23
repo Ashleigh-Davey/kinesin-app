@@ -58,12 +58,12 @@
                 Data
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><%= link_to 'KIF5A', mutations_path(search: "KIF5A"), class: 'dropdown-item' %> </li>
-                <li><%= link_to 'KIF5C', mutations_path(search: "KIF5C"), class: 'dropdown-item' %> </li>
-                <li><%= link_to 'KHC', mutations_path(search: "KHC"), class: 'dropdown-item' %> </li>
+                <li><%= link_to 'KIF5A', mutations_path(search: "KIF5A"), class: 'dropdown-item', id:"fire1"  %> </li>
+                <li><%= link_to 'KIF5C', mutations_path(search: "KIF5C"), class: 'dropdown-item', id:"fire2"%> </li>
+                <li><%= link_to 'KHC', mutations_path(search: "KHC"), class: 'dropdown-item', id:"fire3"%> </li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
-                  <%= link_to 'Show All Mutations', mutations_path, class: 'dropdown-item' %>
+                  <%= link_to 'Show All Mutations', mutations_path, class: 'dropdown-item', id:"fire4" %>
                 </li>
               </ul>
             </li>
@@ -88,6 +88,6 @@
         <a href="/"> </a>
       </div>
     </footer>
-  </body>
 
+</body>
 </html>
